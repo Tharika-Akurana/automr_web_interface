@@ -205,7 +205,7 @@
                                 <i class="mdi mdi-weather-cloudy me-1"></i>
 
                                 <span class="d-none d-sm-inline">
-                                    Weather & Environment
+                                    Weather &amp; Environment
                                 </span>
 
                             </a>
@@ -721,7 +721,7 @@
 
 <!-- ================= WEATHER & ENVIRONMENT ================= -->
 <div class="tab-pane" id="mr_tab2">
-    <h4 class="mb-3">Weather & Environmental Testing</h4>
+    <h4 class="mb-3">Weather &amp; Environmental Testing</h4>
     <p class="text-muted fs-5">
         Evaluates model reliability under challenging real-world environmental conditions.
         Move the sliders to see live effects.
@@ -845,7 +845,7 @@
 
     <!-- ================= TEMPORAL & PREDICTION TESTING ================= -->
 <div class="tab-pane" id="mr_tab3">
-    <h4 class="mb-3">Temporal & Prediction Testing</h4>
+    <h4 class="mb-3">Temporal &amp; Prediction Testing</h4>
     <p class="text-muted fs-5">
         Ensures autonomous driving models produce logically consistent predictions 
         over time and under expected relationships.
@@ -1232,7 +1232,7 @@
       </li>
       <li class="nav-item" role="presentation">
         <button class="nav-link fs-4 d-flex align-items-center gap-1" data-tab="epsilon" type="button" role="tab">
-          <i class="mdi mdi-tune-variant"></i> Epsilon & Threshold
+          <i class="mdi mdi-tune-variant"></i> Epsilon &amp; Threshold
         </button>
       </li>
       <li class="nav-item" role="presentation">
@@ -1256,11 +1256,11 @@
             <div class="card-body">
               <div class="d-flex align-items-center gap-2 mb-2">
                 <span class="badge bg-warning text-white fs-4"><i class="mdi mdi-image-edit-outline"></i></span>
-                <span class="fw-semibold fs-4">Transformation — <code>T</code></span>
+                <span class="fw-semibold fs-4">Transformation: <code>T</code></span>
               </div>
               <p class="text-muted fs-4 mb-0">
                 The <strong>recipe</strong> that turns the original input into a new test input.
-                It only touches <em>x</em> — it never looks at the model.
+                It only touches <em>x</em> ; it never looks at the model.
                 Example: <em>"rotate the image by 15°."</em>
               </p>
             </div>
@@ -1271,7 +1271,7 @@
             <div class="card-body">
               <div class="d-flex align-items-center gap-2 mb-2">
                 <span class="badge bg-info text-white fs-4"><i class="mdi mdi-compare-horizontal"></i></span>
-                <span class="fw-semibold fs-4">Relation — <code>MR</code></span>
+                <span class="fw-semibold fs-4">Relation: <code>MR</code></span>
               </div>
               <p class="text-muted fs-4 mb-0">
                 The <strong>rule</strong> that says how the two outputs, <em>y</em> and <em>y′</em>, ought
@@ -1287,7 +1287,7 @@
         <i class="mdi mdi-lightbulb-on-outline me-1"></i>
         They're two different jobs on the same test case: <strong>T</strong> builds the new input,
         <strong>MR</strong> judges the pair of outputs it produces. "Shouldn't change" is only one
-        kind of MR — see the <strong>Types of MR</strong> tab for the others, and
+        kind of MR ; see the <strong>Types of MR</strong> tab for the others, and
         <strong>Worked Example</strong> for a full run-through with real numbers.
       </div>
 
@@ -1449,7 +1449,7 @@
       <div class="alert alert-light border fs-4 mb-4">
         <i class="mdi mdi-car-outline me-1"></i>
         <strong>Scenario:</strong> a self-driving model <code>f</code> looks at a road photo and predicts
-        a steering angle in degrees. We want to test it against changing light — without needing to know
+        a steering angle in degrees. We want to test it against changing light; without needing to know
         the "correct" angle for every possible photo.
       </div>
 
@@ -1510,7 +1510,7 @@
               <div class="fw-semibold fs-4 mb-2"><i class="mdi mdi-compare-horizontal me-1 text-info"></i>The MR, in plain English</div>
               <p class="text-muted fs-4 mb-0">
                 "Lighting shouldn't meaningfully change the steering decision." Nothing here says what
-                the angle should <em>be</em> — only that it shouldn't move much between <em>x</em> and <em>T(x)</em>.
+                the angle should <em>be</em>; only that it shouldn't move much between <em>x</em> and <em>T(x)</em>.
               </p>
             </div>
           </div>
@@ -1535,7 +1535,7 @@
           </div>
           <div class="text-muted fs-4 mt-2">
             If instead <em>T</em> had been "paint a stop sign onto the road" and the angle barely moved,
-            that same MR would <strong>FAIL</strong> — the relation would flag a real robustness gap.
+            that same MR would <strong>FAIL</strong>; the relation would flag a real robustness gap.
           </div>
         </div>
       </div>
@@ -1586,7 +1586,7 @@
     <div class="mr-pane d-none" data-pane="types">
       <div class="alert alert-light border fs-4 mb-4">
         <i class="mdi mdi-information-outline me-1"></i>
-        "Output shouldn't change" is just the strictest MR — <strong>invariance</strong>. The real
+        "Output shouldn't change" is just the strictest MR; <strong>invariance</strong>. The real
         definition is broader: an MR is <strong>any rule that says how y and y′ must relate</strong>,
         given how T changed x. Direction, proportion, and bounded drift are equally valid MRs.
       </div>
@@ -1597,7 +1597,7 @@
     <div class="mr-pane d-none" data-pane="project">
       <div class="alert alert-light border fs-4 mb-4">
         <i class="mdi mdi-code-braces me-1"></i>
-        These are the exact <code>MetamorphicRelation</code> classes used in this project's test suite —
+        These are the exact <code>MetamorphicRelation</code> classes used in this project's test suite;
         each one checked with <code>check(y1, y2)</code> against a fixed <code>ε</code>.
       </div>
       <div class="accordion" id="projectAccordion"></div>
@@ -1627,8 +1627,8 @@
               </div>
               <div class="text-muted fs-5 mb-3">same width for every sample</div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item px-0 fs-5"><code>a</code> — sensitivity factor, e.g. 0.05</li>
-                <li class="list-group-item px-0 fs-5"><code>Y</code> — the set of all outputs/labels</li>
+                <li class="list-group-item px-0 fs-5"><code>a</code>: sensitivity factor, e.g. 0.05</li>
+                <li class="list-group-item px-0 fs-5"><code>Y</code>: the set of all outputs/labels</li>
               </ul>
             </div>
           </div>
@@ -1654,9 +1654,9 @@
               </div>
               <div class="text-muted fs-5 mb-3">width adapts per sample</div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item px-0 fs-5"><code>f(x)</code> — prediction on the original input</li>
-                <li class="list-group-item px-0 fs-5"><code>a</code> — sensitivity factor, e.g. 0.05</li>
-                <li class="list-group-item px-0 fs-5"><code>δ</code> — small constant, e.g. 10⁻⁶, avoids divide-by-zero</li>
+                <li class="list-group-item px-0 fs-5"><code>f(x)</code>: prediction on the original input</li>
+                <li class="list-group-item px-0 fs-5"><code>a</code>: sensitivity factor, e.g. 0.05</li>
+                <li class="list-group-item px-0 fs-5"><code>δ</code>: small constant, e.g. 10⁻⁶, avoids divide-by-zero</li>
               </ul>
             </div>
           </div>
@@ -1745,7 +1745,7 @@
   const categories = [
     {
       key: 'photometric', label: 'Photometric', color: 'primary', icon: 'mdi-white-balance-sunny',
-      note: 'Changes to color, brightness and light — not shape.',
+      note: 'Changes to color, brightness and light; not shape.',
       items: [
         ['Brightness', 'T(x) = x · β', 'β > 1 brighter, β < 1 darker'],
         ['Contrast', 'T(x) = (x − μ)·α + μ', 'μ = mean intensity, α = contrast factor'],
@@ -1905,7 +1905,7 @@
   const projectGroups = [
     {
       key: 'visual', label: 'Visual Invariance', color: 'primary', icon: 'mdi-image-outline',
-      note: 'InvarianceRelation subclasses — type "equality" — change |y1 − y2| / (|y1| + 1e-6) < ε',
+      note: 'InvarianceRelation subclasses: type "equality"; change |y1 − y2| / (|y1| + 1e-6) < ε',
       formula: '|y1 − y2| / (|y1| + 1e-6) < ε',
       items: [
         ['BrightnessRelation', 0.02, 'Output should remain approximately same under localized brightness change.'],
@@ -1919,7 +1919,7 @@
     },
     {
       key: 'weather', label: 'Weather / Visibility Invariance', color: 'info', icon: 'mdi-weather-fog',
-      note: 'Also InvarianceRelation subclasses — same equality check, one class per weather condition',
+      note: 'Also InvarianceRelation subclasses: same equality check, one class per weather condition',
       formula: '|y1 − y2| / (|y1| + 1e-6) < ε',
       items: [
         ['RainRelation', 0.05, 'Rain should not significantly affect prediction.'],
@@ -1933,7 +1933,7 @@
     },
     {
       key: 'temporal', label: 'Temporal', color: 'success', icon: 'mdi-clock-outline',
-      note: 'TemporalRelation subclasses — type "temporal" — checks across consecutive/nearby frames',
+      note: 'TemporalRelation subclasses: type "temporal"; checks across consecutive/nearby frames',
       formula: '|y1 − y2| / (|y1| + 1e-6) < ε',
       items: [
         ['TemporalSmoothnessRelation', 0.03, 'Predictions should change smoothly across consecutive frames.'],
@@ -1942,8 +1942,8 @@
     },
     {
       key: 'inequality', label: 'Inequality / Directional', color: 'warning', icon: 'mdi-arrow-decision-outline',
-      note: 'type "inequality" — bounds or a direction on the change, not a tight equality',
-      formula: 'varies per class — see each card',
+      note: 'type "inequality": bounds or a direction on the change, not a tight equality',
+      formula: 'varies per class; see each card',
       items: [
         ['DarkVisibilityRelation', 0.10, 'Output should not change drastically under visibility degradation.', '|y2 − y1| / (|y1| + 1e-6) ≤ ε'],
         ['MonotonicIncreaseRelation', null, 'Output should increase after transformation.', 'y2 ≥ y1'],
@@ -1953,7 +1953,7 @@
     },
     {
       key: 'special', label: 'Special: Antisymmetry', color: 'danger', icon: 'mdi-swap-horizontal',
-      note: 'FlipRelation — the odd one out: it expects the output to invert, not stay the same',
+      note: 'FlipRelation; the odd one out: it expects the output to invert, not stay the same',
       formula: '|y2 + y1| / (|y1| + 1e-6) < ε',
       items: [
         ['FlipRelation', 0.10, 'Flipped image should invert steering.', '|y2 + y1| / (|y1| + 1e-6) < ε']
@@ -1965,7 +1965,7 @@
     const itemsHtml = grp.items.map(function(it){
       const name = it[0], eps = it[1], desc = it[2], customFormula = it[3];
       const epsBadge = (eps === null)
-        ? '<span class="badge bg-secondary-subtle text-secondary fs-5">no ε — direction only</span>'
+        ? '<span class="badge bg-secondary-subtle text-secondary fs-5">no ε: direction only</span>'
         : '<span class="badge bg-' + grp.color + '-subtle text-' + grp.color + ' fs-5">ε = ' + eps + '</span>';
       return '<div class="col-md-6 col-lg-4">' +
         '<div class="card h-100 border">' +
@@ -2488,6 +2488,71 @@ window.addEventListener('load', () => {
     32%, 100% { opacity:0.25; transform: scale(1); }
 }
 </style>
+
+<style>
+  /* ============================================================
+     PAGE-WIDE TYPOGRAPHY — normalized to match "How it flows"
+     (fw-semibold labels at base size, small muted monospace desc)
+     ============================================================ */
+
+  /* Big display headings -> smaller, semibold, like mr-flow-header title */
+  #automrwizard ~ .row .display-6,
+  .card-body > .display-6 {
+    font-size: 1.35rem !important;
+    font-weight: 600 !important;
+  }
+
+  /* Lead paragraphs -> muted body text, not oversized */
+  .lead {
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    color: var(--bs-secondary-color, #6c757d);
+  }
+
+  /* Bootstrap fs-* utility overrides used throughout the page */
+  .fs-3 { font-size: 1.05rem !important; }
+  .fs-4 { font-size: 0.95rem !important; }
+  .fs-5 { font-size: 0.85rem !important; }
+
+  /* Section sub-headers (h3, h4 inside cards) -> match mr-node-label weight */
+  .card-body h3,
+  .card-body h4 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  /* All inline code / formulas -> match mr-node-desc styling exactly */
+  code {
+    font-family: var(--bs-font-monospace, monospace) !important;
+    font-size: 0.8rem !important;
+    color: var(--bs-secondary-color, #6c757d);
+    background: transparent;
+  }
+
+  /* Badges used as labels (x, T(x), y, y′, ε, etc.) -> consistent small size */
+  .badge {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+  }
+
+  /* Nav-pill tab labels (Core Idea, Worked Example, etc.) */
+  .mr-nav-pills .nav-link {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+  }
+
+  /* Table text (Worked Example / Project Relations tables) */
+  .table {
+    font-size: 0.85rem !important;
+  }
+
+  /* Muted helper text under headings */
+  .text-muted.small,
+  .card-body .text-muted:not(.fs-3):not(.fs-4):not(.fs-5) {
+    font-size: 0.8rem;
+  }
+</style>
+
 <script>
 document.getElementById("btn-toggle-guide").addEventListener("click", function () {
     const guide = document.getElementById("concept-guide");
