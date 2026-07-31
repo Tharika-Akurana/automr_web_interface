@@ -1312,79 +1312,105 @@
         </div>
       </div>
 
-      <div class="card border h-100 mb-4">
+      <div class="card border h-100 mb-4 mr-flow-card">
         <div class="card-body">
-          <div class="fs-5 text-uppercase text-muted mb-3"><i class="mdi mdi-source-branch me-1"></i>How it flows</div>
+          <div class="d-flex align-items-center gap-3 mb-4">
+            <div class="mr-flow-header-icon">
+              <i class="mdi mdi-source-branch"></i>
+            </div>
+            <div>
+              <div class="fw-semibold fs-6 mb-0">How it flows</div>
+              <div class="text-muted small">Metamorphic testing pipeline for autonomous driving models</div>
+            </div>
+          </div>
 
-          <div class="d-flex flex-column flex-xl-row align-items-center justify-content-center gap-3 mr-flow">
-
-            <div class="d-flex flex-column gap-3">
-              <div class="d-flex align-items-center gap-2">
-                <div class="mr-step text-center">
-                  <div class="avatar-sm mx-auto mb-1">
-                    <div class="avatar-title rounded-circle bg-primary-subtle text-primary fs-3">
-                      <i class="mdi mdi-image-outline"></i>
-                    </div>
-                  </div>
-                  <div class="fw-semibold fs-5">x</div>
-                  <div class="text-muted fs-5">original input</div>
+          <!-- Desktop layout -->
+          <div class="d-none d-xl-grid mr-flow-grid">
+            <div class="d-flex flex-column gap-4">
+              <div class="d-flex align-items-center justify-content-between gap-3">
+                <div class="mr-node">
+                  <div class="mr-node-icon input"><i class="mdi mdi-image-outline"></i></div>
+                  <div class="mr-node-label">x</div>
+                  <div class="mr-node-desc">original input</div>
                 </div>
-                <div class="mr-arrow text-muted fs-1">&rarr;</div>
-                <div class="mr-step text-center">
-                  <div class="avatar-sm mx-auto mb-1">
-                    <div class="avatar-title rounded-circle bg-primary text-white fs-3">
-                      <i class="mdi mdi-cog-outline"></i>
-                    </div>
-                  </div>
-                  <div class="fw-semibold fs-5">Model</div>
-                  <div class="text-muted fs-5">y = f(x)</div>
+                <i class="mdi mdi-arrow-right mr-arrow-icon"></i>
+                <div class="mr-node">
+                  <div class="mr-node-icon model"><i class="mdi mdi-cog-outline"></i></div>
+                  <div class="mr-node-label">Model</div>
+                  <div class="mr-node-desc">y = f(x)</div>
                 </div>
               </div>
-
-              <div class="d-flex align-items-center gap-2">
-                <div class="mr-step text-center">
-                  <div class="avatar-sm mx-auto mb-1">
-                    <div class="avatar-title rounded-circle bg-warning-subtle text-warning fs-3">
-                      <i class="mdi mdi-image-edit-outline"></i>
-                    </div>
-                  </div>
-                  <div class="fw-semibold fs-5">T(x)</div>
-                  <div class="text-muted fs-5">transformed input</div>
+              <div class="d-flex align-items-center justify-content-between gap-3">
+                <div class="mr-node">
+                  <div class="mr-node-icon transform"><i class="mdi mdi-image-edit-outline"></i></div>
+                  <div class="mr-node-label">T(x)</div>
+                  <div class="mr-node-desc">transformed input</div>
                 </div>
-                <div class="mr-arrow text-muted fs-1">&rarr;</div>
-                <div class="mr-step text-center">
-                  <div class="avatar-sm mx-auto mb-1">
-                    <div class="avatar-title rounded-circle bg-warning text-white fs-3">
-                      <i class="mdi mdi-cog-outline"></i>
-                    </div>
-                  </div>
-                  <div class="fw-semibold fs-5">Model</div>
-                  <div class="text-muted fs-5">y′ = f(T(x))</div>
+                <i class="mdi mdi-arrow-right mr-arrow-icon"></i>
+                <div class="mr-node">
+                  <div class="mr-node-icon model"><i class="mdi mdi-cog-outline"></i></div>
+                  <div class="mr-node-label">Model</div>
+                  <div class="mr-node-desc">y′ = f(T(x))</div>
                 </div>
               </div>
             </div>
 
-            <div class="mr-arrow text-muted fs-1 mr-arrow-rotate">&rarr;</div>
+            <div class="d-flex align-items-center justify-content-center">
+              <i class="mdi mdi-arrow-right mr-arrow-icon mr-arrow-lg"></i>
+            </div>
 
-            <div class="mr-step text-center">
-              <div class="avatar-md mx-auto mb-1">
-                <div class="avatar-title rounded-circle bg-info text-white fs-1">
-                  <i class="mdi mdi-compare-horizontal"></i>
-                </div>
+            <div class="d-flex align-items-center gap-4">
+              <div class="mr-node">
+                <div class="mr-node-icon compare"><i class="mdi mdi-scale-balance"></i></div>
+                <div class="mr-node-label">Comparator</div>
+                <div class="mr-node-desc">checks the MR</div>
               </div>
-              <div class="fw-semibold fs-5">Comparator</div>
-              <div class="text-muted fs-5">checks the MR</div>
+              <i class="mdi mdi-arrow-right mr-arrow-icon"></i>
+              <div class="mr-node">
+                <span class="mr-verdict-pill pass" id="verdictBadge">
+                  <i class="mdi mdi-check-circle"></i>PASS
+                </span>
+                <div class="mr-node-desc mt-2">MR(x,T(x),y,y′)</div>
+              </div>
             </div>
+          </div>
 
-            <div class="mr-arrow text-muted fs-1">&rarr;</div>
-
-            <div class="mr-step text-center">
-              <span class="badge fs-4 px-3 py-2" id="verdictBadge">
-                <i class="mdi mdi-check-circle me-1"></i>PASS
-              </span>
-              <div class="text-muted fs-5 mt-1">MR(x,T(x),y,y′)</div>
+          <!-- Mobile layout -->
+          <div class="d-flex d-xl-none flex-column align-items-center gap-3">
+            <div class="mr-node">
+              <div class="mr-node-icon input"><i class="mdi mdi-image-outline"></i></div>
+              <div class="mr-node-label">x</div>
+              <div class="mr-node-desc">original input</div>
             </div>
-
+            <i class="mdi mdi-arrow-down mr-arrow-icon"></i>
+            <div class="mr-node">
+              <div class="mr-node-icon model"><i class="mdi mdi-cog-outline"></i></div>
+              <div class="mr-node-label">Model</div>
+              <div class="mr-node-desc">y = f(x)</div>
+            </div>
+            <div class="mr-divider"></div>
+            <div class="mr-node">
+              <div class="mr-node-icon transform"><i class="mdi mdi-image-edit-outline"></i></div>
+              <div class="mr-node-label">T(x)</div>
+              <div class="mr-node-desc">transformed input</div>
+            </div>
+            <i class="mdi mdi-arrow-down mr-arrow-icon"></i>
+            <div class="mr-node">
+              <div class="mr-node-icon model"><i class="mdi mdi-cog-outline"></i></div>
+              <div class="mr-node-label">Model</div>
+              <div class="mr-node-desc">y′ = f(T(x))</div>
+            </div>
+            <i class="mdi mdi-arrow-down mr-arrow-icon"></i>
+            <div class="mr-node">
+              <div class="mr-node-icon compare"><i class="mdi mdi-scale-balance"></i></div>
+              <div class="mr-node-label">Comparator</div>
+              <div class="mr-node-desc">checks the MR</div>
+            </div>
+            <i class="mdi mdi-arrow-down mr-arrow-icon"></i>
+            <span class="mr-verdict-pill pass" id="verdictBadgeMobile">
+              <i class="mdi mdi-check-circle"></i>PASS
+            </span>
+            <div class="mr-node-desc">MR(x,T(x),y,y′)</div>
           </div>
         </div>
       </div>
@@ -1664,22 +1690,54 @@
 </div>
 
 <style>
-  /* Animation + tiny layout helpers only — colors/sizing come from theme utility classes */
-  .mr-arrow{ animation: mrArrowNudge 1.3s ease-in-out infinite; }
-  @keyframes mrArrowNudge{
-    0%, 100% { transform: translateX(0); opacity: .6; }
-    50% { transform: translateX(4px); opacity: 1; }
+  /* --- existing animation rules stay as-is above this line --- */
+
+  /* Flow diagram design tokens (mirrors the React/Tailwind version) */
+  .mr-flow-card{
+    --flow-input: #3b82f6;      --flow-input-fg: #ffffff;
+    --flow-model: #334155;      --flow-model-fg: #ffffff;
+    --flow-transform: #f59e0b;  --flow-transform-fg: #422006;
+    --flow-compare: #14b8a6;    --flow-compare-fg: #ffffff;
+    --flow-pass: #22c55e;       --flow-pass-fg: #ffffff;
+    --flow-fail: #ef4444;       --flow-fail-fg: #ffffff;
   }
-  #verdictBadge{ animation: mrVerdictSwap 3s steps(1) infinite; }
-  @keyframes mrVerdictSwap{ 0%,60%{ } 61%,100%{ } }
-  .mr-local-bar{ animation: mrLocalBarWidth 3.4s ease-in-out infinite; }
-  @keyframes mrLocalBarWidth{
-    0%, 100% { width: 20%; }
-    50% { width: 65%; }
+  .mr-flow-header-icon{
+    width: 2.5rem; height: 2.5rem; border-radius: .75rem;
+    background: color-mix(in srgb, var(--bs-primary) 12%, transparent);
+    color: var(--bs-primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
   }
-  @media (min-width: 1200px){
-    .mr-flow{ flex-wrap: nowrap; }
+  .mr-flow-grid{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
   }
+  .mr-node{ display:flex; flex-direction:column; align-items:center; gap:.4rem; min-width:7rem; text-align:center; }
+  .mr-node-icon{
+    width: 3rem; height: 3rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; box-shadow: 0 1px 3px rgba(0,0,0,.12);
+    box-shadow: 0 0 0 4px currentColor -webkit-mask;
+  }
+  .mr-node-icon.input{ background: var(--flow-input); color: var(--flow-input-fg); box-shadow: 0 0 0 4px color-mix(in srgb, var(--flow-input) 25%, transparent); }
+  .mr-node-icon.model{ background: var(--flow-model); color: var(--flow-model-fg); box-shadow: 0 0 0 4px color-mix(in srgb, var(--flow-model) 25%, transparent); }
+  .mr-node-icon.transform{ background: var(--flow-transform); color: var(--flow-transform-fg); box-shadow: 0 0 0 4px color-mix(in srgb, var(--flow-transform) 25%, transparent); }
+  .mr-node-icon.compare{ background: var(--flow-compare); color: var(--flow-compare-fg); box-shadow: 0 0 0 4px color-mix(in srgb, var(--flow-compare) 25%, transparent); }
+  .mr-node-label{ font-weight: 600; }
+  .mr-node-desc{ font-family: var(--bs-font-monospace, monospace); font-size: .8rem; color: var(--bs-secondary-color, #6c757d); }
+  .mr-arrow-icon{ color: #94a3b8; font-size: 1.25rem; }
+  .mr-arrow-lg{ font-size: 2rem; }
+  .mr-divider{ width: 100%; max-width: 4rem; height: 1px; background: var(--bs-border-color); margin: .25rem 0; }
+
+  .mr-verdict-pill{
+    display: inline-flex; align-items: center; gap: .4rem;
+    height: 2.75rem; padding: 0 1.1rem; border-radius: 9999px;
+    font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.12);
+  }
+  .mr-verdict-pill.pass{ background: var(--flow-pass); color: var(--flow-pass-fg); }
+  .mr-verdict-pill.fail{ background: var(--flow-fail); color: var(--flow-fail-fg); }
 </style>
 
 <script>
@@ -1956,16 +2014,20 @@
   });
 
   const verdicts = [
-    { text: 'PASS', cls: 'bg-success-subtle text-success', icon: 'mdi-check-circle' },
-    { text: 'PASS', cls: 'bg-success-subtle text-success', icon: 'mdi-check-circle' },
-    { text: 'FAIL', cls: 'bg-danger-subtle text-danger', icon: 'mdi-close-circle' }
+    { text: 'PASS', cls: 'pass', icon: 'mdi-check-circle' },
+    { text: 'PASS', cls: 'pass', icon: 'mdi-check-circle' },
+    { text: 'FAIL', cls: 'fail', icon: 'mdi-close-circle' }
   ];
   let vi = 0;
   const badge = document.getElementById('verdictBadge');
+  const badgeMobile = document.getElementById('verdictBadgeMobile');
   function cycleVerdict(){
     const v = verdicts[vi % verdicts.length];
-    badge.className = 'badge fs-4 px-3 py-2 ' + v.cls;
-    badge.innerHTML = '<i class="mdi ' + v.icon + ' me-1"></i>' + v.text;
+    [badge, badgeMobile].forEach(el => {
+      if (!el) return;
+      el.className = 'mr-verdict-pill ' + v.cls;
+      el.innerHTML = '<i class="mdi ' + v.icon + '"></i>' + v.text;
+    });
     vi++;
   }
   cycleVerdict();
