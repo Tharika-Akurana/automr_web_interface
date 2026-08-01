@@ -344,6 +344,21 @@ def testrun_detail(request, pk):
         for mr, groups in transformation_samples_indexed.items()
     }
 
+    # --- regroup indexed samples: MR -> [samples] becomes sample -> [MRs] ---
+    indexed_by_sample = {}
+    for mr, groups in transformation_samples_indexed_urls.items():
+        for grp in groups:
+            idx = grp["idx"]
+            indexed_by_sample.setdefault(idx, []).append({
+                "mr": mr,
+                "entries": grp["entries"],
+            })
+
+    transformation_samples_indexed_grouped = [
+        {"idx": idx, "relations": sorted(indexed_by_sample[idx], key=lambda r: r["mr"])}
+        for idx in sorted(indexed_by_sample.keys())
+    ]
+
     # --- paginated prediction trace ---
     try:
         page = max(int(request.GET.get("page", 1)), 1)
@@ -431,7 +446,7 @@ def testrun_detail(request, pk):
         "dataset_info": dataset_info,
         "file_groups": file_groups,
         "transformation_samples_sweep": transformation_samples_sweep_urls,
-        "transformation_samples_indexed": transformation_samples_indexed_urls,
+        "transformation_samples_indexed": transformation_samples_indexed_grouped,
         "ts_metadata_rows": to_records(ts_metadata),
         "has_csv": pred_trace_total > 0,
     }

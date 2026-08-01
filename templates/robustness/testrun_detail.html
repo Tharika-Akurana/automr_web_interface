@@ -257,28 +257,35 @@
             <div class="tab-pane" id="ts_tab_indexed">
                 {% if transformation_samples_indexed %}
                 <div class="ts-panel">
-                    {% for mr, groups in transformation_samples_indexed.items %}
-                    <h6 class="mt-3">{{ mr }}</h6>
-                    {% for grp in groups %}
-                    <p class="text-muted small mb-1">Sample #{{ grp.idx }}</p>
-                    <div class="thumb-row pb-2 mb-3" style="gap: 12px;">
-                        {% for img in grp.entries %}
-                        <div class="text-center flex-shrink-0" style="width: 180px;">
-                            <img src="{{ img.url }}"
-                                 class="img-fluid rounded {% if img.role == 'original' %}original-border{% else %}normal-border{% endif %}"
-                                 alt="{{ img.name }}"
-                                 style="width:180px;height:180px;object-fit:cover;">
-                            <div class="small mt-1">
-                                {% if img.role == 'original' %}
-                                <span class="badge bg-primary">Original</span>
-                                {% else %}
-                                <span class="text-muted">param = {{ img.param|floatformat:2 }}</span>
-                                {% endif %}
+                    {% for sample in transformation_samples_indexed %}
+                    <div class="indexed-sample-section mb-4 pb-3 border-bottom">
+                        <h5 class="fw-semibold mb-3">Sample #{{ sample.idx }}</h5>
+
+                        <div class="d-flex flex-wrap gap-4">
+                            {% for rel in sample.relations %}
+                            <div class="indexed-relation-block">
+                                <h6 class="text-muted mb-2">{{ rel.mr }}</h6>
+                                <div class="thumb-row" style="gap: 12px;">
+                                    {% for img in rel.entries %}
+                                    <div class="text-center flex-shrink-0" style="width: 180px;">
+                                        <img src="{{ img.url }}"
+                                             class="img-fluid rounded {% if img.role == 'original' %}original-border{% else %}normal-border{% endif %}"
+                                             alt="{{ img.name }}"
+                                             style="width:180px;height:180px;object-fit:cover;">
+                                        <div class="small mt-1">
+                                            {% if img.role == 'original' %}
+                                            <span class="badge bg-primary">Original</span>
+                                            {% else %}
+                                            <span class="text-muted">param = {{ img.param|floatformat:2 }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
-                    {% endfor %}
                     {% endfor %}
                 </div>
                 {% else %}
